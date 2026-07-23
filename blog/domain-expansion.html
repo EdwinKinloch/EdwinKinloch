@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naming the Thing You Can't Name — Edwin Kinloch</title>
+<meta name="description" content="What it actually takes to give a self-hosted AI agent a memory it can trust — and why the interesting problems aren't the ones people ask about.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Edwin Kinloch</span>
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="index.html" data-current="true">Blog</a>
+  <a href="../resume.html">Resume</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html"><button type="button" class="btn btn-primary">Contact</button></a>
+</nav>
+
+<div class="wrap page">
+  <p class="post-meta">AI Infrastructure</p>
+  <h1>Naming the Thing You Can't Name</h1>
+  <div class="post-body section-gap">
+    <p>I've been building a self-hosted multi-agent system on my own time for a while now — internally I call it Project Domain Expansion. It's not a product, and I'm not going to describe the stack or the architecture in any detail that would let someone reconstruct it. That's on purpose.</p>
+    <p>What I will say is that the hard part was never getting an agent to answer a question. It was getting it to remember the right things, forget the right things, and know the difference between the two without me babysitting every decision. Most demos skip this part because it isn't flashy. It's also where all the actual engineering lives.</p>
+    <p>The second hard part was building in stop points — places where the system has to wait for a human before it does something expensive or irreversible. It's tempting to build the fully autonomous version first and add guardrails later. I did it the other way around, and I'd do it that way again.</p>
+    <p>Fifteen years of production infrastructure taught me the same lesson twice: the system that fails loudly and safely beats the system that never fails, because the second one doesn't exist. That's true whether you're flipping a Blue/Green deployment or letting an agent make its own decisions overnight.</p>
+  </div>
+  <a class="back-link" href="index.html">← Back to all posts</a>
+</div>
+
+<footer class="site">
+  <div class="wrap">Edwin Kinloch · Built and maintained by hand.</div>
+</footer>
+</body>
+</html>

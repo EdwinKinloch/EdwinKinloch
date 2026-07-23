@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 2 A.M. Cutover — Edwin Kinloch</title>
+<meta name="description" content="A production Blue/Green flip across a dozen server stacks, and the thirty seconds where nobody was sure it had worked.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Edwin Kinloch</span>
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="index.html" data-current="true">Blog</a>
+  <a href="../resume.html">Resume</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html"><button type="button" class="btn btn-primary">Contact</button></a>
+</nav>
+
+<div class="wrap page">
+  <p class="post-meta">DevOps</p>
+  <h1>The 2 A.M. Cutover</h1>
+  <div class="post-body section-gap">
+    <p>There's a specific kind of quiet in a production cutover window. Everyone's on the call, nobody's talking, and the only sound is someone's keyboard as they tail a log they've already tailed forty times that week.</p>
+    <p>We'd spent weeks getting to that quiet: designing a Blue/Green rollout across twelve server stacks so a deployment meant flipping traffic at the load balancer instead of taking anything down. Automated failover, a rollback path that didn't require anyone to remember a runbook from memory, approval gates so a bad flip couldn't cascade before a human looked at it.</p>
+    <p>The plan worked. It always mostly works — that's what the weeks of preparation buy you. What they don't buy you is the thirty seconds after the flip where the dashboards haven't caught up yet and you genuinely don't know if it worked. You just watch the numbers and wait.</p>
+    <p>The lesson that stuck with me wasn't technical. It was that the calm at 2 a.m. is manufactured, not accidental. Every boring, uneventful cutover is downstream of someone deciding, weeks earlier, that this moment should be boring. That's the job, more than any specific tool.</p>
+  </div>
+  <a class="back-link" href="index.html">← Back to all posts</a>
+</div>
+
+<footer class="site">
+  <div class="wrap">Edwin Kinloch · Built and maintained by hand.</div>
+</footer>
+</body>
+</html>
