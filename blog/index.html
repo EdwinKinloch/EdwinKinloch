@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Edwin Kinloch</title>
+<meta name="description" content="Notes on infrastructure, AI systems, career, and the other 10-20% of life. Mostly technical, occasionally not.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Edwin Kinloch</span>
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="index.html" data-current="true">Blog</a>
+  <a href="../resume.html">Resume</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../contact.html"><button type="button" class="btn btn-primary">Contact</button></a>
+</nav>
+
+<div class="wrap page">
+  <h1>Blog</h1>
+  <p class="lede">Notes on infrastructure, AI systems, career, and the other 10-20% of life. Mostly technical, occasionally not.</p>
+  <div class="filter-row">
+    <button type="button" class="tag tag-accent" data-filter="all">All</button>
+    <button type="button" class="tag tag-outline" data-filter="ai-infrastructure">AI Infrastructure</button>
+    <button type="button" class="tag tag-outline" data-filter="devops">DevOps</button>
+    <button type="button" class="tag tag-outline" data-filter="career">Career</button>
+    <button type="button" class="tag tag-outline" data-filter="hobbies">Hobbies</button>
+  </div>
+  <div class="blog-grid">
+    <article class="post-card" data-tags="ai-infrastructure">
+      <p class="post-meta">AI Infrastructure</p>
+      <h3 class="f-title"><a href="domain-expansion.html">Naming the Thing You Can't Name</a></h3>
+      <p class="post-excerpt">What it actually takes to give a self-hosted AI agent a memory it can trust — and why the interesting problems aren't the ones people ask about.</p>
+      <a href="domain-expansion.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="devops">
+      <p class="post-meta">DevOps</p>
+      <h3 class="f-title"><a href="the-2am-cutover.html">The 2 A.M. Cutover</a></h3>
+      <p class="post-excerpt">A production Blue/Green flip across a dozen server stacks, and the thirty seconds where nobody was sure it had worked.</p>
+      <a href="the-2am-cutover.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="career">
+      <p class="post-meta">Career</p>
+      <h3 class="f-title"><a href="fifteen-years-prepared-me.html">What Fifteen Years of Infrastructure Prepared Me For</a></h3>
+      <p class="post-excerpt">The overlap between hardening a network perimeter and defending an AI agent from a hostile prompt is bigger than it looks.</p>
+      <a href="fifteen-years-prepared-me.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="hobbies">
+      <p class="post-meta">Hobbies</p>
+      <h3 class="f-title"><a href="bjj.html">Brazilian Jiu-Jitsu</a></h3>
+      <p class="post-excerpt">On the mats most weeks — the other place where staying calm under pressure is the entire skill.</p>
+      <a href="bjj.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="hobbies">
+      <p class="post-meta">Hobbies</p>
+      <h3 class="f-title"><a href="manga-comics.html">Manga & Comics</a></h3>
+      <p class="post-excerpt">Perpetually behind on a backlog. Ask me what I'm currently reading, not what I've finished.</p>
+      <a href="manga-comics.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="hobbies">
+      <p class="post-meta">Hobbies</p>
+      <h3 class="f-title"><a href="anime-film-tv.html">Anime & Film/TV</a></h3>
+      <p class="post-excerpt">Slow burns over spectacle, most of the time. Happy to argue about it.</p>
+      <a href="anime-film-tv.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="hobbies">
+      <p class="post-meta">Hobbies</p>
+      <h3 class="f-title"><a href="gardening.html">Gardening</a></h3>
+      <p class="post-excerpt">Learning by killing plants at a steady, humbling pace.</p>
+      <a href="gardening.html">Read →</a>
+    </article>
+    <article class="post-card" data-tags="hobbies">
+      <p class="post-meta">Hobbies</p>
+      <h3 class="f-title"><a href="currently-learning.html">Currently Studying</a></h3>
+      <p class="post-excerpt">Working toward the CKA and a couple of AWS specialty certs — notes usually turn into blog posts.</p>
+      <a href="currently-learning.html">Read →</a>
+    </article>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">Edwin Kinloch · Built and maintained by hand.</div>
+</footer>
+
+<script>
+  (function() {
+    const filterButtons = document.querySelectorAll('.filter-row .tag');
+    const postCards = document.querySelectorAll('.post-card');
+
+    function setActiveFilter(filterSlug) {
+      filterButtons.forEach(btn => {
+        const btnFilter = btn.getAttribute('data-filter');
+        if (btnFilter === filterSlug) {
+          btn.classList.remove('tag-outline');
+          btn.classList.add('tag-accent');
+        } else {
+          btn.classList.remove('tag-accent');
+          btn.classList.add('tag-outline');
+        }
+      });
+
+      postCards.forEach(card => {
+        const cardTags = card.getAttribute('data-tags');
+        if (filterSlug === 'all' || cardTags === filterSlug) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        setActiveFilter(filter);
+      });
+    });
+
+    // Check for hash on load
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setActiveFilter(hash);
+    }
+  })();
+</script>
+</body>
+</html>

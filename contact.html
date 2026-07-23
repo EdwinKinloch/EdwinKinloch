@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Edwin Kinloch</title>
+<meta name="description" content="Contact Edwin Kinloch — email, LinkedIn, GitHub, Bluesky, or X.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">Edwin Kinloch</span>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog/index.html">Blog</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html" data-current="true">Contact</a>
+  <a href="contact.html"><button type="button" class="btn btn-primary">Contact</button></a>
+</nav>
+
+<div class="wrap page">
+  <h1>Contact</h1>
+  <p class="lede">Best way to reach me is email, or wherever you already are.</p>
+  <div class="contact-links">
+    <a class="btn btn-secondary" href="mailto:e.kinloch@outlook.com">Email</a>
+    <a class="btn btn-secondary" href="https://www.linkedin.com/in/ekinloch/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-secondary" href="https://github.com/ekinloch" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn btn-secondary" href="https://bsky.app/profile/edwinkinloch.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+    <a class="btn btn-secondary" href="https://x.com/ekinloch" target="_blank" rel="noopener">X</a>
+  </div>
+  <hr class="rule2">
+  <div class="section-gap" style="max-width:520px">
+    <div id="contact-form-container">
+      <form id="contact-form">
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input class="input" id="c-name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input class="input" id="c-email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="c-msg">Message</label>
+          <textarea class="input" id="c-msg" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <div id="contact-thanks" style="display:none;">
+      <p class="lede">Thanks — your email client should be open with the message pre-filled. If nothing happened, just email me directly at e.kinloch@outlook.com.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">Edwin Kinloch · Built and maintained by hand.</div>
+</footer>
+
+<script>
+  (function() {
+    const form = document.getElementById('contact-form');
+    const container = document.getElementById('contact-form-container');
+    const thanks = document.getElementById('contact-thanks');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const email = document.getElementById('c-email').value;
+      const msg = document.getElementById('c-msg').value;
+      const body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = 'mailto:e.kinloch@outlook.com?subject=' + encodeURIComponent('Message from edwinkinloch.com') + '&body=' + body;
+      container.style.display = 'none';
+      thanks.style.display = 'block';
+    });
+  })();
+</script>
+</body>
+</html>
