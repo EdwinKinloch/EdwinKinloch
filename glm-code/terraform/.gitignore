@@ -1,0 +1,25 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!example.tfvars
+crash.log
+crash.*.log
+terraform.tfplan
+terraform.rc
+.terraformrc
+
+# Terraform language server
+.terraform.lsp
+
+# Override files (local development)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Packer (if present for AMI building)
+*.box
+packer_cache/
+documentation/
